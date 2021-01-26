@@ -8,7 +8,7 @@ const pool = new Pool({
 })
 
 const getCars = (request, response) => {
-    const stmt = 'select car."Name" as "Car Name",make."name" as "Make", model."Name" as "Model" from car left join make on car.make_id=make.id left join model on car.model_id=model.id order by car.id';
+    const stmt = 'select car.id as "Car ID",car."Name" as "Car Name",make."name" as "Make", model."Name" as "Model" from car left join make on car.make_id=make.id left join model on car.model_id=model.id order by car.id';
     pool.query(stmt, (error, result) => {
         if (error) {
             throw error;
@@ -28,12 +28,15 @@ const getCarById = (request, response) => {
         return;
     }
     
-    const stmt = 'select car."Name" as "Car Name",make."name" as "Make", model."Name" as "Model" from car left join make on car.make_id=make.id left join model  on car.model_id=model.id where car.id=$1';
+    const stmt = 'select car.id as "Car ID",car."Name" as "Car Name",make."name" as "Make", model."Name" as "Model" from car left join make on car.make_id=make.id left join model  on car.model_id=model.id where car.id=$1';
     pool.query(stmt, [id], (error, result) => {
         if (error) {
             throw error;
         }
-        response.status(200).json(result.rows)
+        if(result.rowCount>0)
+            response.status(200).json(result.rows)
+        else
+            response.status(200).json({info:'No car with id:'+id})
     })
 }
 
