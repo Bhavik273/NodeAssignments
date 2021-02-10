@@ -4,7 +4,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'CarDB',
-    password: '',//enter your password
+    password: 'bhavik273',//enter your password
     port: 5432
 })
 const getCars = async (request, response) => {
@@ -16,12 +16,13 @@ const getCars = async (request, response) => {
         }
         let carDetails = result.rows
         result = await pool.query('SELECT car_id,imagename FROM carimages')
-        if(result.rowCount>0)
-        {
+        //if carImages table returns with data
+        if(result.rowCount>0){
             let images = result.rows;
+            //for every car in car table
             carDetails.forEach(element => {
-                //element = Object(element)
                 let list = []
+                //find and add image from car-images table based on id
                 images.filter(ele=>{
                     if(ele.car_id==element.CarID)
                         list.push({image:`${request.protocol}://${request.get('host')}/images/${ele.imagename}`})

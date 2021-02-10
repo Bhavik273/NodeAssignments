@@ -1,0 +1,12 @@
+{
+	"EmailRequired": "Email is required!!!",
+	"PasswordRequired": "Password is required!!!",
+	"NoCarWithId": "NoCarWithId",
+	"CarIdPositive": "Car Id must be > 0",
+	"CarIdRequired": "Car Id is required!!!",
+	"ImageNotFound": "Request is missing Image",
+	"CarIdInvalid": "Invalid value for car Id",
+	"CarMakeRequired": "Car Maker is required!!!",
+	"CarNameRequired": "Car Name is required!!!",
+	"CarModelRequired": "Car Model is required!!!"
+}

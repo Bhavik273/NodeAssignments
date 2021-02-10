@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "58516080-aae2-4a54-bdab-5e6423d54b0c",
+		"name": "Car Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/car/all",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\":\"abc@ex.com\",\r\n    \"Password\":\"abc123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/user/login",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Car by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/car/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carName\":\"c2\",\r\n    \"carMake\":\"m1\",\r\n    \"carModel\":\"Automatic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/car/add",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Car image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "carImage",
+							"type": "file",
+							"src": "/F:/Photos/20925_XX-G-JC-17020602.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server}}/api/car/upload/20",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"upload",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Car",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carName\":\"Audi X5\",\r\n    \"carMake\":\"Audi\",\r\n    \"carModel\":\"Automatic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/car/update/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Car",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/car/delete/26",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"car",
+						"delete",
+						"26"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiRW1haWwiOiJhYmNAZXguY29tIiwiaWF0IjoxNjEyOTQ1MTA0fQ.Iq0kSgphaAITmlQgJjKacHo7foysCeFqO83oJbh1Fhk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "http://localhost:3000"
+		}
+	]
+}
